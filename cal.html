@@ -1,0 +1,278 @@
+
+<html>
+<head>
+<title> calculator</title>
+<style>
+body{
+	margin:0;
+	padding:0;
+	background-image:-moz-radial-gradient(center ,circle closest-corner,#353863 0%,#000 100% );
+	background-image:-O-radial-gradient(center ,circle closest-corner,#353863 0%,#000 100% );
+	background-image:-webkit-radial-gradient(center ,circle closest-corner,#353863 0%,#000 100% );
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	-moz-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+}
+.calculator
+{
+	width:240px;
+	height:auto;
+	margin:3% auto;
+	background :#ccc;
+	border-radius:20px;
+	-moz-box-shadow:insert 0 0 12px #fff,
+	insert 0px 1px,#e6e6e6, 0 1px 1px #323643,
+	insert 0px 1px,#7b839b, 0 2px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow:insert 0 0 12px #fff,
+	insert 0px 1px,#e6e6e6, 0 1px 1px #323643,
+	insert 0px 1px,#7b839b, 0 2px 5px rgba(0,0,0,0.5);
+	box-shadow:insert 0 0 12px #fff,
+	insert 0px 1px,#e6e6e6, 0 1px 1px #323643,
+	insert 0px 1px,#7b839b, 0 2px 5px rgba(0,0,0,0.5);
+}
+.screen{
+	margin:20px 0px 0px 12px;
+	padding-right:9px;
+	height:54px;
+	width:86%;
+	background:#858585;
+	text-align:right;
+	border-radius:6px;
+	font-size:26px;
+	font:"trebuchet MS",arial,Helvatica,sans-sarief;
+	-webkit-box-shadow:insert 0px 0px 10px #333,
+	insert 0px 1px 1px #0a0b0d,insert 0px 1px #e6e6e6;
+	-moz-box-shadow:inset 0px 0px 10px #333,
+	inset 0px 1px 1px #0a0b0d,insert 0px 1px #e6e6e6;
+	box-shadow:inset 0px 0px 10px #333,
+	insert 0px 1px 1px #0a0b0d,insert 0px 1px #e6e6e6;
+}
+.screen:focus
+{
+	outline:none;
+
+}
+.buttons
+{
+	font-size:16px;
+	font-weight:bold;
+	width:220px;
+	margin:12px;
+}
+.buttons button{
+	font-size:16px;
+	font-weight:bold;
+	width:45px;
+	height:45px;
+	padding:0px;
+	border-radius:6px;
+	border:1px solid #333;
+	color:#ccc;
+	margin:0px 0px 10px 5px;
+	line-height:45px;
+	font:"trebuchet MS",arial,Helvatica,sans-sarief;
+	-webkit-box-shadow:insert 0px 0px 10px #666,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	-moz-box-shadow:inset 0px 0px 10px #666,
+	inset 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	box-shadow:inset 0px 0px 10px #666,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+    background:#333;
+}
+.buttons:button:active{
+	color:#fff;
+	border:1px solid #333;
+	-webkit-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	
+	-moz-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+}
+#clear
+{
+	font-size:16px;
+	font-weight:bold;
+	background:#d02200;
+	border:1px solid #d02200;
+	-webkit-box-shadow:insert 0px 0px 10px #f63,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	-moz-box-shadow:0px 0px 10px #f63,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	box-shadow:inset 0px 0px 10px #f63,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+
+}
+#clear:active{
+	border: 1px solid #d02200;
+	-webkit-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	
+	-moz-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+}
+#equal
+{
+	font-size:16px;
+	font-weight:bold;
+	width:100px;
+	background:#026;
+	border:1px solid #026;
+	-webkit-box-shadow:insert 0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	-moz-box-shadow:0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	box-shadow:inset 0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+
+}
+#equal:active
+{
+	border:1px solid #039;
+	-webkit-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	
+	-moz-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+
+}
+#plus,#minus,#multiply,#divide
+{
+	font-size:16px;
+	font-weight:bold;
+	background:#036;
+	border:1px solid #036;
+	-webkit-box-shadow:insert 0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	-moz-box-shadow:0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+	box-shadow:inset 0px 0px 10px #069,
+	insert 0px  1px #bcd6ff,inset 0px 1px 1px #323643;
+}
+#plus:active,#minus:active,#multiply:active,#divide:active
+{
+	border:1px solid #039;
+	-webkit-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	
+	-moz-box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+	box-shadow:inset 0px 1px 1px #0A0B0D,0px 1px #E6E6E6;
+
+}
+
+</style>
+</head>
+<body>
+<div class="calculator">
+<input class="screen" name="screen" value=""/>
+<div class="buttons">
+<button id="clear" value="">c</button>
+<button id="backspace " value="-">&#8592;</button>
+<button id="sign" value="-+">&#177;</button>
+<button id="divide" value="/">&#247;</button>
+<button class="digits" value="7">7</button>
+<button class="digits" value="8">8</button>
+<button class="digits" value="9">9</button>
+<button id="multiply" value="*">x</button>
+<button class="digits" value="4">4</button>
+<button class="digits" value="5">5</button>
+<button class="digits" value="6">6</button>
+<button id="minus" value="-">-</button>
+<button class="digits" value="1">1</button>
+<button class="digits" value="2">2</button>
+<button class="digits" value="3">3</button>
+<button id="plus" value="+">+</button>
+<button class="digits" value="0">0</button>
+<button class="digits" value=".">&#8226;</button>
+<button id="equal" value="=">=</button>
+</div>
+</div>
+
+<script>
+var memory=0;
+var memorycalc;
+var c=false;
+var flag=false;
+var screen=function(p)
+{
+	if(p=='.'&&flag==true)
+	{
+		return;
+	}
+	if(c==true)
+	{
+		$('#screen').val('');
+		c=false;
+	}
+	var r = $('#screen').val('') + p;
+		if(p=='.')
+		{
+			flag=true;
+		}
+		else
+		{
+			r=r*1;
+		}
+		$('#screen').val('');
+	}
+	var calculate=function(p){
+		if(memory){
+			result();
+
+		}
+		flag=false;
+		c=true;
+		memory=$('#screen').val('');
+		memorycalc=p;
+
+	}
+	$('#clear').click(function()
+	{
+		memory=0;
+		$('#screen').val('');
+
+
+	});
+	$('#sign').click(function(){
+		$('#screen').val($('#screen').val()* -1);
+	});
+	$('#backspace').click(function(){
+		var len=$('#screen').val().length;
+		$('#screen').val($('#screen').val().substring(0,len-1));
+		if($('#screen').val().length==0)
+		 $('#screen').val(0);
+});
+var result=function(){
+	if(memory==0)
+	return;
+	c=true;
+	var r;
+	switch(memorycalc){
+		case'+':
+		r=memory + $('#screen').val();
+		break;
+		case'-':
+		r=memory - $('#screen').val();
+		break;
+		case'*':
+		r=memory * $('#screen').val();
+		break;
+		case'/':
+		r=memory / $('#screen').val();
+		break;
+		
+	}
+	screen(r);
+	c=true;
+	flag=false;
+	memory=0;
+};
+$('digit').click(function(e){
+screen(e.target.value);
+});
+$('#divide,#multiply,#plus,#minus').click(function(e){
+calculate(e.target.value);
+});
+$('#equal').click(function(){
+result();
+});
+</script>
+</body>
+</html>
